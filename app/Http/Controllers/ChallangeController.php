@@ -2,84 +2,83 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\User;
 use App\Model\Challange;
+use App\Model\UserChallange;
 use Illuminate\Http\Request;
 
 class ChallangeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function getChallange()
     {
-        //
+        $user = auth()->user();
+        $userChallage = UserChallange::where('user_id', $user->id)->get()->pluck(['id'])->toArray();
+        if ($user->current_id) {
+            return Challange::find($user->current_id);
+        } else {
+            if ($user->previous == 'clue') {
+                $challange = Challange::where('type', 'activity')->get();
+                $challange->except($userChallage)->random();
+
+                $user             = User::find($user->id);
+                $user->previous   = 'activity';
+                $user->current_id = $challange->id;
+                $user->current    = 'clue';
+                if ($user->update()) {
+                    return $challange;
+                } else {
+                    return response()->json([
+                        'status'    => 'error',
+                        'message'   => 'Error Reading Challange'
+                    ], 404);
+                }
+            } else if ($user->previous == 'activity') {
+                $challange = Challange::where('type', 'clue')->get();
+                $challange->except($userChallage)->random();
+
+                $user             = User::find($user->id);
+                $user->previous   = 'clue';
+                $user->current_id = $challange->id;
+                $user->current    = 'activity';
+                if ($user->update()) {
+                    return $challange;
+                } else {
+                    return response()->json([
+                        'status'    => 'error',
+                        'message'   => 'Error Reading Challange'
+                    ], 404);
+                }
+            }
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function setChallange(Challange $challange)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Model\Challange  $challange
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Challange $challange)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Model\Challange  $challange
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Challange $challange)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Challange  $challange
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Challange $challange)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Model\Challange  $challange
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Challange $challange)
-    {
-        //
+        $user                       = auth()->user();
+        $user                       = User::find($user->id);
+        $userChallage               = new UserChallange;
+        $userChallage->user_id      = $user->id;
+        $userChallage->challange_id = $challange->id;
+        if ($userChallage->save()) {
+            $user->previous   = $challange->type == 'clue' ? 'activity' : 'clue';
+            $user->current_id = 0;
+            $user->current    = '';
+            if ($user->update()) {
+                return response()->json([
+                    'status'    => 'success',
+                    'message'   => 'Challange Completed'
+                ], 200);
+            } else {
+                return response()->json([
+                    'status'    => 'error',
+                    'message'   => 'Error Completing Challange'
+                ], 404);
+            }
+        } else {
+            return response()->json([
+                'status'    => 'error',
+                'message'   => 'Error Completing Challange'
+            ], 404);
+        }
     }
 }

@@ -18,13 +18,14 @@ class UsersTableSeeder extends Seeder
                 'id'       => '1',
                 'name'     => 'Team 1',
                 'email'    => 'team1@shells.com',
-                'password' => bcrypt('password')
+                'password' => bcrypt('password'),
+                'previous' => 'activity'
             ],
             [
                 'id'     => '2',
                 'name'     => 'Team2',
                 'email'    => 'team2@shells.com',
-                'password' => bcrypt('password')
+                'previous' => 'activity'
             ],
         ]);
     }

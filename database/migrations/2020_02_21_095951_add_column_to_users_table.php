@@ -14,7 +14,9 @@ class AddColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->string('previous')->after('password');
+            $table->string('current')->after('previous');
+            $table->integer('current_id')->after('current');
         });
     }
 
@@ -26,7 +28,7 @@ class AddColumnToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn(['previous', 'current', 'current_id']);
         });
     }
 }
