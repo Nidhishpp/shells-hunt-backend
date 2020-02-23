@@ -52,8 +52,9 @@ class ChallangeController extends Controller
         }
     }
 
-    public function setChallange(Challange $challange)
+    public function setChallange(Request $request)
     {
+        $challange                  = Challange::find($request->challange_id);
         $user                       = auth()->user();
         $user                       = User::find($user->id);
         $userChallage               = new UserChallange;
