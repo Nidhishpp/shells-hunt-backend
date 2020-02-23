@@ -15,17 +15,20 @@ class UsersTableSeeder extends Seeder
         User::truncate();
         User::insert([
             [
-                'id'       => '1',
-                'name'     => 'Team 1',
-                'email'    => 'team1@shells.com',
-                'password' => bcrypt('password'),
-                'previous' => 'activity'
+                'id'         => '1',
+                'name'       => 'Team 1',
+                'email'      => 'team1@shells.com',
+                'password'   => bcrypt('password'),
+                'previous'   => 'activity',
+                'current_id' => '0'
             ],
             [
-                'id'     => '2',
-                'name'     => 'Team2',
-                'email'    => 'team2@shells.com',
-                'previous' => 'activity'
+                'id'         => '2',
+                'name'       => 'Team2',
+                'email'      => 'team2@shells.com',
+                'password'   => bcrypt('password'),
+                'previous'   => 'activity',
+                'current_id' => '0'
             ],
         ]);
     }

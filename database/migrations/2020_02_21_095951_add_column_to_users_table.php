@@ -15,8 +15,8 @@ class AddColumnToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('previous')->after('password');
-            $table->string('current')->after('previous');
-            $table->integer('current_id')->after('current');
+            $table->string('current')->after('previous')->nullable();
+            $table->integer('current_id')->after('current')->nullable();
         });
     }
 
