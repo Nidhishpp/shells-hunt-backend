@@ -61,19 +61,38 @@ class ChallangeController extends Controller
         $userChallage->user_id      = $user->id;
         $userChallage->challange_id = $challange->id;
         if ($userChallage->save()) {
+
+            $challanges = Challange::count();
+            $userChallages = UserChallange::where('user_id', $user->id)->count();
             $user->previous   = $challange->type == 'clue' ? 'activity' : 'clue';
-            $user->current_id = 0;
-            $user->current    = '';
-            if ($user->update()) {
-                return response()->json([
-                    'status'    => 'success',
-                    'message'   => 'Challange Completed'
-                ], 200);
+            if ($challanges === $userChallages) {
+                $user->current_id = 100;
+                $user->current    = 'winner';
+                if ($user->update()) {
+                    return response()->json([
+                        'status'    => 'winner',
+                        'message'   => 'Challange Completed'
+                    ], 200);
+                } else {
+                    return response()->json([
+                        'status'    => 'error',
+                        'message'   => 'Error Completing Challange'
+                    ], 404);
+                }
             } else {
-                return response()->json([
-                    'status'    => 'error',
-                    'message'   => 'Error Completing Challange'
-                ], 404);
+                $user->current_id = 0;
+                $user->current    = '';
+                if ($user->update()) {
+                    return response()->json([
+                        'status'    => 'success',
+                        'message'   => 'Challange Completed'
+                    ], 200);
+                } else {
+                    return response()->json([
+                        'status'    => 'error',
+                        'message'   => 'Error Completing Challange'
+                    ], 404);
+                }
             }
         } else {
             return response()->json([
