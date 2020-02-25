@@ -12,15 +12,12 @@ class ChallangeController extends Controller
     public function getChallange()
     {
         $user = auth()->user();
-        $userChallage = UserChallange::where('user_id', $user->id)->get();
-        $userChallage = $userChallage->isEmpty() ? [] : $userChallage->pluck(['id'])->toArray();
+        $userChallage = UserChallange::where('user_id', $user->id)->get()->pluck(['id'])->toArray();
         if ($user->current_id) {
             return Challange::find($user->current_id);
         } else {
             if ($user->previous == 'clue') {
-                $challange = Challange::where('type', 'activity')->get();
-                $challange->except($userChallage)->random();
-
+                $challange = Challange::where('type', 'activity')->get()->except($userChallage)->random();
                 $user             = User::find($user->id);
                 $user->previous   = 'activity';
                 $user->current_id = $challange->id;
@@ -34,8 +31,7 @@ class ChallangeController extends Controller
                     ], 404);
                 }
             } else if ($user->previous == 'activity') {
-                $challange = Challange::where('type', 'clue')->get();
-                $challange->except($userChallage)->random();
+                $challange = Challange::where('type', 'clue')->get()->except($userChallage)->random();
 
                 $user             = User::find($user->id);
                 $user->previous   = 'clue';
