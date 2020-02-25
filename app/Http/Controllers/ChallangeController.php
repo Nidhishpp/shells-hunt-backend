@@ -12,7 +12,8 @@ class ChallangeController extends Controller
     public function getChallange()
     {
         $user = auth()->user();
-        $userChallage = UserChallange::where('user_id', $user->id)->get()->pluck(['id'])->toArray();
+        $userChallage = UserChallange::where('user_id', $user->id)->get();
+        $userChallage = $userChallage->isEmpty() ? [] : $userChallage->pluck(['id'])->toArray();
         if ($user->current_id) {
             return Challange::find($user->current_id);
         } else {
