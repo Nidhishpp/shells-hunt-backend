@@ -30,6 +30,30 @@ class UsersTableSeeder extends Seeder
                 'previous'   => 'activity',
                 'current_id' => '0'
             ],
+            [
+                'id'         => '3',
+                'name'       => 'Team3',
+                'email'      => 'team3@shells.com',
+                'password'   => bcrypt('password'),
+                'previous'   => 'activity',
+                'current_id' => '0'
+            ],
+            [
+                'id'         => '4',
+                'name'       => 'Team4',
+                'email'      => 'team4@shells.com',
+                'password'   => bcrypt('password'),
+                'previous'   => 'activity',
+                'current_id' => '0'
+            ],
+            [
+                'id'         => '5',
+                'name'       => 'Team5',
+                'email'      => 'team5@shells.com',
+                'password'   => bcrypt('password'),
+                'previous'   => 'activity',
+                'current_id' => '0'
+            ],
         ]);
     }
 }
