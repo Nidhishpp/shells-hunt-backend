@@ -18,33 +18,20 @@ class ChallangeController extends Controller
         } else {
             if ($user->previous == 'clue') {
                 $challange = Challange::where('type', 'activity')->get()->except($userChallage)->random();
-                $user             = User::find($user->id);
-                $user->previous   = 'activity';
-                $user->current_id = $challange->id;
-                $user->current    = 'clue';
-                if ($user->update()) {
-                    return $challange;
-                } else {
-                    return response()->json([
-                        'status'    => 'error',
-                        'message'   => 'Error Reading Challange'
-                    ], 404);
-                }
             } else if ($user->previous == 'activity') {
                 $challange = Challange::where('type', 'clue')->get()->except($userChallage)->random();
+            }
 
-                $user             = User::find($user->id);
-                $user->previous   = 'clue';
-                $user->current_id = $challange->id;
-                $user->current    = 'activity';
-                if ($user->update()) {
-                    return $challange;
-                } else {
-                    return response()->json([
-                        'status'    => 'error',
-                        'message'   => 'Error Reading Challange'
-                    ], 404);
-                }
+            $user             = User::find($user->id);
+            $user->current_id = $challange->id;
+            $user->current    = $challange->type;
+            if ($user->update()) {
+                return $challange;
+            } else {
+                return response()->json([
+                    'status'    => 'error',
+                    'message'   => 'Error Reading Challange'
+                ], 404);
             }
         }
     }
