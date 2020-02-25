@@ -61,8 +61,8 @@ class ChallangeController extends Controller
 
             $challanges = Challange::count();
             $userChallages = UserChallange::where('user_id', $user->id)->count();
-            $user->previous   = $challange->type == 'clue' ? 'activity' : 'clue';
             if ($challanges === $userChallages) {
+                $user->previous   = $challange->type;
                 $user->current_id = 100;
                 $user->current    = 'winner';
                 if ($user->update()) {
@@ -77,6 +77,7 @@ class ChallangeController extends Controller
                     ], 404);
                 }
             } else {
+                $user->previous   = $challange->type;
                 $user->current_id = 0;
                 $user->current    = '';
                 if ($user->update()) {
