@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Model\User;
-use App\Model\Challange;
 use App\Model\UserChallange;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
