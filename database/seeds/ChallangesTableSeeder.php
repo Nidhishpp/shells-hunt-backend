@@ -16,16 +16,14 @@ class ChallangesTableSeeder extends Seeder
         Challange::insert([
             [
                 'id'       => '1',
-                'question' => 'I am an E-Commerce Brand for basic food item and you can
-                shoot me.',
+                'question' => 'I am an E-Commerce Brand for basic food item and you can shoot me.',
                 'answer'   => '101',
                 'type'     => 'clue'
             ],
             
             [
                 'id'       => '2',
-                'question' => 'If you see one of these, you should stop and gaze to watch it
-                spout down.',
+                'question' => 'If you see one of these, you should stop and gaze to watch it spout down.',
                 'answer'   => '102',
                 'type'     => 'clue'
             ],
@@ -55,7 +53,7 @@ class ChallangesTableSeeder extends Seeder
             ],
             [
                 'id'       => '7',
-                'question' => 'You cant C me yet I run behind to accumulate the extra unwanted things.',
+                'question' => 'You can\'t C me yet I run behind to accumulate the extra unwanted things.',
                 'answer'   => '107',
                 'type'     => 'clue'
             ],
@@ -68,14 +66,13 @@ class ChallangesTableSeeder extends Seeder
             
             [
                 'id'       => '9',
-                'question' => 'for all your hard work and stumbles this will solve your bellys rumbles',
+                'question' => 'For all your hard work and stumbles this will solve your bellys rumbles',
                 'answer'   => '109',
                 'type'     => 'clue'
             ],
             [
                 'id'       => '10',
-                'question' => 'I give you security as well as let your group score
-                points/goals.',
+                'question' => 'I give you security as well as let your group score points/goals.',
                 'answer'   => '110',
                 'type'     => 'clue'
             ],
@@ -93,20 +90,20 @@ class ChallangesTableSeeder extends Seeder
             ],
             [
                 'id'       => '13',
-                'question' => 'go to the bike park and complete your quiz',
+                'question' => 'Go to the bike park, Meet the volunteer and complete your quiz to move on.',
                 'answer'   => 'success',
                 'type'     => 'activity'
             ],
            
             [
                 'id'       => '14',
-                'question' => 'go to bus park and solve Jig-saw puzzle.',
+                'question' => 'Go to bus park and solve Jig-saw puzzle.',
                 'answer'   => 'solve',
                 'type'     => 'activity'
             ],
             [
                 'id'       => '15',
-                'question' => 'Find volunteers,complete  your activity and get your keyword',
+                'question' => 'Find volunteer at the collage gate and complete your activity to get your keyword',
                 'answer'   => 'reverse',
                 'type'     => 'activity'
             ],
@@ -118,19 +115,19 @@ class ChallangesTableSeeder extends Seeder
             ],
             [
                 'id'       => '17',
-                'question' => 'Count the number of the lamppost in chavara suare.',
+                'question' => 'Count the number of the lamp post in chavara square.',
                 'answer'   => '4',
                 'type'     => 'activity'
             ],
             [
                 'id'       => '18',
-                'question' => 'go to the basketball hoop  and take a selfie with that volunteer and find your keyword',
+                'question' => 'Go to the basketball hoop and take a selfie with that volunteer and find your keyword',
                 'answer'   => 'cute',
                 'type'     => 'activity'
             ],
             [
                 'id'       => '19',
-                'question' => 'find the tree name with laurel fig and find its family name',
+                'question' => 'Find the tree name with laurel fig and find its family name',
                 'answer'   => 'moraceae',
                 'type'     => 'activity'
             ],

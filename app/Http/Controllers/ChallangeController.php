@@ -15,7 +15,8 @@ class ChallangeController extends Controller
         if ($user->current_id != 0) {
             return Challange::find($user->current_id);
         } else {
-            $userChallage = UserChallange::where('user_id', $user->id)->get()->pluck(['id'])->toArray();
+            $userChallage = UserChallange::where('user_id', $user->id)->get()->pluck(['challange_id'])->toArray();
+            return $userChallage;
             if ($user->previous == 'clue') {
                 $challange = Challange::where('type', 'activity')->get()->except($userChallage)->random();
             } else if ($user->previous == 'activity') {
