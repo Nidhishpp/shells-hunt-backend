@@ -13,7 +13,7 @@ class ChallangeController extends Controller
     {
         $user = auth()->user();
         $userChallage = UserChallange::where('user_id', $user->id)->get()->pluck(['id'])->toArray();
-        if ($user->current_id) {
+        if ($user->current_id != 0) {
             return Challange::find($user->current_id);
         } else {
             if ($user->previous == 'clue') {
