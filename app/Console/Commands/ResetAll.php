@@ -43,6 +43,7 @@ class ResetAll extends Command
     {
         UserChallange::truncate();
         Artisan::call('db:seed');
+        User::query()->update(['previous' => 'activity', 'current' => null, 'current_id' => 0]);
         $this->info('Everything Reset and Good to Go!!!');
     }
 }
