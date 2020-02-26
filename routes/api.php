@@ -27,5 +27,6 @@ Route::group([
 
     Route::post('/challange', 'ChallangeController@setChallange');
 
-    Route::get('/userChallange/{user}', 'UserChallangeController@challange');
 });
+
+Route::get('/userChallange/{user}', 'UserChallangeController@challange');
