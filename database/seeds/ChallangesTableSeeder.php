@@ -16,62 +16,128 @@ class ChallangesTableSeeder extends Seeder
         Challange::insert([
             [
                 'id'       => '1',
-                'question' => 'q1',
-                'answer'   => 'a1',
+                'question' => 'I am an E-Commerce Brand for basic food item and you can
+                shoot me.',
+                'answer'   => '101',
                 'type'     => 'clue'
             ],
+            
             [
                 'id'       => '2',
-                'question' => 'q2',
-                'answer'   => 'a2',
+                'question' => 'If you see one of these, you should stop and gaze to watch it
+                spout down.',
+                'answer'   => '102',
                 'type'     => 'clue'
             ],
             [
                 'id'       => '3',
-                'question' => 'q3',
-                'answer'   => 'a3',
+                'question' => 'The hierarchical portrayal of hubs and information.',
+                'answer'   => '103',
                 'type'     => 'clue'
             ],
             [
                 'id'       => '4',
-                'question' => 'q4',
-                'answer'   => 'a4',
+                'question' => 'Decimal proportional: 11010011 and where you can store things in me',
+                'answer'   => '104',
                 'type'     => 'clue'
             ],
             [
                 'id'       => '5',
-                'question' => 'q5',
-                'answer'   => 'a5',
+                'question' => 'Ascii Code of Bike: 80 66 48 51 85 55 51 49 51',
+                'answer'   => '105',
                 'type'     => 'clue'
             ],
             [
                 'id'       => '6',
-                'question' => 'q6',
-                'answer'   => 'a6',
-                'type'     => 'activity'
+                'question' => 'A spot encompassed by 7 columns and 3 edges.',
+                'answer'   => '106',
+                'type'     => 'clue'
             ],
             [
                 'id'       => '7',
-                'question' => 'q7',
-                'answer'   => 'a7',
-                'type'     => 'activity'
+                'question' => 'You cant C me yet I run behind to accumulate the extra unwanted things.',
+                'answer'   => '107',
+                'type'     => 'clue'
             ],
             [
                 'id'       => '8',
-                'question' => 'q8',
-                'answer'   => 'a8',
-                'type'     => 'activity'
+                'question' => 'We only care about the errors and not the alerts.',
+                'answer'   => '108',
+                'type'     => 'clue'
             ],
+            
             [
                 'id'       => '9',
-                'question' => 'q9',
-                'answer'   => 'a9',
-                'type'     => 'activity'
+                'question' => 'for all your hard work and stumbles this will solve your bellys rumbles',
+                'answer'   => '109',
+                'type'     => 'clue'
             ],
             [
                 'id'       => '10',
-                'question' => 'q10',
-                'answer'   => 'a10',
+                'question' => 'I give you security as well as let your group score
+                points/goals.',
+                'answer'   => '110',
+                'type'     => 'clue'
+            ],
+            [
+                'id'       => '11',
+                'question' => 'Throw the ball in the basketball loops four times.',
+                'answer'   => 'sun',
+                'type'     => 'activity'
+            ],
+            [
+                'id'       => '12',
+                'question' => 'Count the big black fishes in the pond',
+                'answer'   => '11',
+                'type'     => 'activity'
+            ],
+            [
+                'id'       => '13',
+                'question' => 'go to the bike park and complete your quiz',
+                'answer'   => 'success',
+                'type'     => 'activity'
+            ],
+           
+            [
+                'id'       => '14',
+                'question' => 'go to bus park and solve Jig-saw puzzle.',
+                'answer'   => 'solve',
+                'type'     => 'activity'
+            ],
+            [
+                'id'       => '15',
+                'question' => 'Find volunteers,complete  your activity and get your keyword',
+                'answer'   => 'reverse',
+                'type'     => 'activity'
+            ],
+            [
+                'id'       => '16',
+                'question' => 'Count the dust bins in the ground',
+                'answer'   => '4',
+                'type'     => 'activity'
+            ],
+            [
+                'id'       => '17',
+                'question' => 'Count the number of the lamppost in chavara suare.',
+                'answer'   => '4',
+                'type'     => 'activity'
+            ],
+            [
+                'id'       => '18',
+                'question' => 'go to the basketball hoop  and take a selfie with that volunteer and find your keyword',
+                'answer'   => 'cute',
+                'type'     => 'activity'
+            ],
+            [
+                'id'       => '19',
+                'question' => 'find the tree name with laurel fig and find its family name',
+                'answer'   => 'moraceae',
+                'type'     => 'activity'
+            ],
+            [
+                'id'       => '20',
+                'question' => 'find the addition of binary number 10101010 and 10111011',
+                'answer'   => '0101100101',
                 'type'     => 'activity'
             ],
         ]);

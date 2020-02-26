@@ -54,6 +54,14 @@ class UsersTableSeeder extends Seeder
                 'previous'   => 'activity',
                 'current_id' => '0'
             ],
+            [
+                'id'         => '6',
+                'name'       => 'Team6',
+                'email'      => 'team6@shells.com',
+                'password'   => bcrypt('password'),
+                'previous'   => 'activity',
+                'current_id' => '0'
+            ],
         ]);
     }
 }
