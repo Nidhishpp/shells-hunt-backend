@@ -103,7 +103,7 @@ class ChallangesTableSeeder extends Seeder
             ],
             [
                 'id'       => '15',
-                'question' => 'Find volunteer at the collage gate and complete your activity to get your keyword',
+                'question' => 'Find volunteer at the 2nd gate and complete your activity to get your keyword',
                 'answer'   => 'reverse',
                 'type'     => 'activity'
             ],
